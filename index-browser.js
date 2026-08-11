@@ -1,65 +1,58 @@
 "use strict";
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-  }
-  return to;
-};
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/scripts/default-index.ts
-var default_index_exports = {};
-__export(default_index_exports, {
-  Prisma: () => Prisma,
-  PrismaClient: () => PrismaClient,
-  default: () => default_index_default
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-module.exports = __toCommonJS(default_index_exports);
-
-// ../../node_modules/.pnpm/@prisma+engines-version@5.22.0-44.605197351a3c8bdd595af2d2a9bc3025bca48ea2/node_modules/@prisma/engines-version/package.json
-var prisma = {
-  enginesVersion: "605197351a3c8bdd595af2d2a9bc3025bca48ea2"
-};
-
-// package.json
-var version = "5.22.0";
-
-// src/runtime/utils/clientVersion.ts
-var clientVersion = version;
-
-// src/scripts/default-index.ts
-var PrismaClient = class {
-  constructor() {
-    throw new Error('@prisma/client did not initialize yet. Please run "prisma generate" and try to import it again.');
-  }
-};
-function defineExtension(ext) {
-  if (typeof ext === "function") {
-    return ext;
-  }
-  return (client) => client.$extends(ext);
+exports.ROOT_CONFIG_FILENAMES = void 0;
+exports.findConfigUpwards = findConfigUpwards;
+exports.findPackageData = findPackageData;
+exports.findRelativeConfig = findRelativeConfig;
+exports.findRootConfig = findRootConfig;
+exports.loadConfig = loadConfig;
+exports.loadPlugin = loadPlugin;
+exports.loadPreset = loadPreset;
+exports.resolvePlugin = resolvePlugin;
+exports.resolvePreset = resolvePreset;
+exports.resolveShowConfigPath = resolveShowConfigPath;
+function findConfigUpwards(rootDir) {
+  return null;
 }
-function getExtensionContext(that) {
-  return that;
+function* findPackageData(filepath) {
+  return {
+    filepath,
+    directories: [],
+    pkg: null,
+    isPackage: false
+  };
 }
-var Prisma = {
-  defineExtension,
-  getExtensionContext,
-  prismaVersion: { client: clientVersion, engine: prisma.enginesVersion }
-};
-var default_index_default = { Prisma };
-// Annotate the CommonJS export names for ESM import in node:
-0 && (module.exports = {
-  Prisma,
-  PrismaClient
-});
+function* findRelativeConfig(pkgData, envName, caller) {
+  return {
+    config: null,
+    ignore: null
+  };
+}
+function* findRootConfig(dirname, envName, caller) {
+  return null;
+}
+function* loadConfig(name, dirname, envName, caller) {
+  throw new Error(`Cannot load ${name} relative to ${dirname} in a browser`);
+}
+function* resolveShowConfigPath(dirname) {
+  return null;
+}
+const ROOT_CONFIG_FILENAMES = exports.ROOT_CONFIG_FILENAMES = [];
+function resolvePlugin(name, dirname) {
+  return null;
+}
+function resolvePreset(name, dirname) {
+  return null;
+}
+function loadPlugin(name, dirname) {
+  throw new Error(`Cannot load plugin ${name} relative to ${dirname} in a browser`);
+}
+function loadPreset(name, dirname) {
+  throw new Error(`Cannot load preset ${name} relative to ${dirname} in a browser`);
+}
+0 && 0;
+
+//# sourceMappingURL=index-browser.js.map
